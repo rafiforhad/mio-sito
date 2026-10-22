@@ -1,5 +1,9 @@
 body {
   background: lightblue;
+  background-image: url("img/sfondo.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 20px;
@@ -14,12 +18,20 @@ h1 {
 }
 
 .scheda {
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
   max-width: 500px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 12px;
   text-align: left;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: apparizione 0.8s ease-out;
+}
+
+.scheda:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
 }
 
 h2 {
@@ -30,9 +42,6 @@ h2 {
   font-size: 12px;
   color: gray;
 }
-.scheda {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
 
 .bottone {
   display: inline-block;
@@ -42,8 +51,31 @@ h2 {
   border-radius: 8px;
   text-decoration: none;
   margin: 4px;
+  transition: background 0.3s ease, transform 0.3s ease;
+  animation: pulsante 2s infinite;
 }
 
 .bottone:hover {
   background: orange;
+  transform: scale(1.05);
+}
+
+@keyframes apparizione {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulsante {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
 }
